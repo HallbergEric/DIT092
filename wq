@@ -1,0 +1,143 @@
+[33mcommit e161b5ca024979f361655fd576a70bf85e0147d1[m[33m ([m[1;36mHEAD -> [m[1;32mdavidGren[m[33m, [m[1;31morigin/davidGren[m[33m)[m
+Author: David <gusbordac@student.gu.se>
+Date:   Wed Dec 18 10:41:27 2019 +0100
+
+    Merge Risk
+
+[1mdiff --git a/src/RiskMatrix/Risk.java b/src/RiskMatrix/Risk.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..af51be1[m
+[1m--- /dev/null[m
+[1m+++ b/src/RiskMatrix/Risk.java[m
+[36m@@ -0,0 +1,131 @@[m
+[32m+[m[32mpackage RiskMatrix;[m
+[32m+[m
+[32m+[m[32mpublic class Risk {[m
+[32m+[m[32m    private String riskName;[m
+[32m+[m[32m    private int riskProbability;[m
+[32m+[m[32m    private int riskImpact;[m
+[32m+[m[32m    private int risk;[m
+[32m+[m[32m    private String riskProbabilityText;[m
+[32m+[m[32m    private String riskImpactText;[m
+[32m+[m[32m    private String riskText;[m
+[32m+[m
+[32m+[m[32m    public Risk(String riskName, int riskProbability, int riskImpact) {[m
+[32m+[m[32m        this.riskName = riskName;[m
+[32m+[m[32m        this.riskProbability = riskProbability;[m
+[32m+[m[32m        this.riskImpact = riskImpact;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getRiskName() {[m
+[32m+[m[32m        return riskName;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setRiskName(String riskName) {[m
+[32m+[m[32m        this.riskName = riskName;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int getRiskProbability() {[m
+[32m+[m[32m        return riskProbability;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setRiskProbability(int riskProbability) {[m
+[32m+[m[32m        this.riskProbability = riskProbability;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int getRiskImpact() {[m
+[32m+[m[32m        return riskImpact;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setRiskImpact(int riskImpact) {[m
+[32m+[m[32m        this.riskImpact = riskImpact;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public int getRisk() {[m
+[32m+[m[32m        return getRiskProbability() * getRiskImpact();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public void setRisk(int risk) {[m
+[32m+[m[32m        this.risk = risk;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getRiskProbabilityText() {[m
+[32m+[m[32m        switch (getRiskProbability()) {[m
+[32m+[m[32m            case 1: {[m
+[32m+[m[32m                riskProbabilityText = "Very unlikely";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            case 2: {[m
+[32m+[m[32m                riskProbabilityText = "unlikely";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            case 3: {[m
+[32m+[m[32m                riskProbabilityText = "Possible";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            case 4: {[m
+[32m+[m[32m                riskProbabilityText = "Likely";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            case 5: {[m
+[32m+[m[32m                riskProbabilityText = "Very likely";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            default:[m
+[32m+[m[32m                System.out.println("Error");[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        return riskProbabilityText;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getRiskImpactText() {[m
+[32m+[m[32m        switch (getRiskImpact()) {[m
+[32m+[m[32m            case 1: {[m
+[32m+[m[32m                riskImpactText = "Very low";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            case 2: {[m
+[32m+[m[32m                riskImpactText = "Low";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            case 3: {[m
+[32m+[m[32m                riskImpactText = "Medium";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            case 4: {[m
+[32m+[m[32m                riskImpactText = "High";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            case 5: {[m
+[32m+[m[32m                riskImpactText = "Very High";[m
+[32m+[m[32m                break;[m
+[32m+[m[32m            }[m
+[32m+[m[32m            default:[m
+[32m+[m[32m                System.out.println("Error");[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m[32m        return riskImpactText;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public String getRiskText() {[m
+[32m+[m[32m        return riskText;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public String toString() {[m
+[32m+[m[32m        return "Risk{" +[m
+[32m+[m[32m                "riskName='" + riskName + '\'' +[m
+[32m+[m[32m                ", riskProbability=" + riskProbability +[m
+[32m+[m[32m                ", riskImpact=" + riskImpact +[m
+[32m+[m[32m                ", risk=" + getRisk() +[m
+[32m+[m[32m                ", riskProbabilityText='" + getRiskProbabilityText() + '\'' +[m
+[32m+[m[32m                ", riskImpactText='" + getRiskImpactText() + '\'' +[m
+[32m+[m[32m                '}';[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public static void main(String[] args) {[m
+[32m+[m
+[32m+[m[32m        Risk risk = new Risk("dead", 4, 5);[m
+[32m+[m
+[32m+[m[32m        System.out.println(risk.toString());[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
